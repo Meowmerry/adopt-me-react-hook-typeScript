@@ -1,12 +1,12 @@
 import Pet from "./Pet";
 
-const Results = ({ pets }) => {
+const Results = ({ pets }:any) => {
   return (
     <div className=" grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {!pets.length ? (
         <h1>No Pets Found</h1>
       ) : (
-        pets.map((pet) => {
+        pets.map((pet:any) => {
           return (
             <Pet
               // {...pet} --> this one is not good to do

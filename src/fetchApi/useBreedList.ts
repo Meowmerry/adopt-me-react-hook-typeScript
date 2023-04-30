@@ -1,9 +1,9 @@
 // import { useState, useEffect } from "react";
 // const localCache = {};
-import { useQuery } from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 import fetchBreedList from "./fetchBreedList";
 
-const useBreedList = (animal) => {
+const useBreedList = (animal: any) => {
     /* ******** This is the way use with useQuery when we want to fetch data from API ******** 
                 useQuery will not fetch data again if we already call, so make app not refetch again
     */

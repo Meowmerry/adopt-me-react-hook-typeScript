@@ -8,6 +8,7 @@ import renderApp from "./dist/server/ServerApp.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const PORT = process.env.PORT || 3001;
+// write some method that calls that api every five minutes and cache that 
 
 const html = fs
     .readFileSync(path.resolve(__dirname, "./dist/client/index.html"))

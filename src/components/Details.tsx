@@ -5,14 +5,20 @@ import AdoptedPetContext from "../fetchApi/AdoptedPetContext";
 import ErrorBoundary from "./ErrorBoundary";
 import Carousel from "./Carousel";
 import fetchPet from "../fetchApi/fetchPet";
+import {PetAPIResponse} from "../fetchApi/APIResponsesTypes";
 
 const Modal = lazy(() => import("./Modal"));
 
 const Details = () => {
   const { id } = useParams();
+  if (!id) {
+    throw new Error("no id provided to details");
+  }
+
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  const results = useQuery(["details", id], fetchPet);
+  const results = useQuery<PetAPIResponse>(["details", id], fetchPet);
+
   // eslint-disable-next-line no-unused-vars
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
@@ -24,7 +30,12 @@ const Details = () => {
     );
   }
 
-  const pet = results.data.pets[0];
+  const pet = results?.data?.pets[0];
+
+  // Add the handle if no pet
+  if (!pet) {
+    throw new Error("pet not found");
+  }
 
   return (
     <div className="details">

@@ -5,9 +5,19 @@
 //     React.createElement("h2", {}, props.breed),
 //   ]);
 // };
-import { Link } from "react-router-dom";
 
-const Pet = (props:any) => {
+import { Link } from "react-router-dom";
+import {Animal} from "../fetchApi/APIResponsesTypes";
+interface IProps {
+  name: string;
+  animal: Animal;
+  breed: string;
+  images: string[];
+  location: string;
+  id:number;
+}
+// const Pet:FunctionComponent<IProps> = (props:IProps) => {
+  const Pet = (props:IProps) => {
   const { name, animal, breed, images, location, id } = props;
 
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";

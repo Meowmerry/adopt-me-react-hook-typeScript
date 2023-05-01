@@ -35,10 +35,10 @@ const SearchParams = () => {
 
   const [requestParams, setRequestParams] = useState({
     location: "",
-    animal: "",
+    animal: "" as Animal,
     breed: "",
   });
-  const [adoptedPet] = useContext<any>(AdoptedPetContext);
+  const [adoptedPet] = useContext(AdoptedPetContext);
   const [animal, setAnimal] = useState("" as Animal);
   const [breeds] = useBreedList(animal);
   const [isPending, startTransition] = useTransition();
@@ -64,7 +64,7 @@ const SearchParams = () => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
           const obj = {
-            animal: formData.get("animal")?.toString() ?? "",
+            animal: formData.get("animal")?.toString() as Animal ?? "" as Animal,
             breed: formData.get("breed")?.toString() ?? "",
             location: formData.get("location")?.toString() ?? "",
           };
@@ -127,7 +127,7 @@ const SearchParams = () => {
             // onBlur={(e) => setBreed(e.target.value)}
           >
             <option />
-            {breeds.map((breed:any) => (
+            {breeds.map((breed) => (
               <option key={breed} value={breed}>
                 {breed}
               </option>

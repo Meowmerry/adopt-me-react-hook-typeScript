@@ -1,15 +1,20 @@
 // import { useState, useEffect } from "react";
 // const localCache = {};
-import {useQuery} from "@tanstack/react-query";
+import {QueryStatus, useQuery} from "@tanstack/react-query";
 import fetchBreedList from "./fetchBreedList";
+import {Animal} from "./APIResponsesTypes";
 
-const useBreedList = (animal: any) => {
+const useBreedList = (animal: Animal) => {
     /* ******** This is the way use with useQuery when we want to fetch data from API ******** 
-                useQuery will not fetch data again if we already call, so make app not refetch again
+    useQuery will not fetch data again if we already call, so make app not refetch again
     */
     const results = useQuery(["breeds", animal], fetchBreedList);
 
-    return [results?.data?.breeds ?? [], results.status];
+    return [results?.data?.breeds ?? [], results.status] as [
+        string[],
+        QueryStatus
+    ];
+
 
     /*
     * ******** This is the way use with useEffect when we want to fetch data from API  ********

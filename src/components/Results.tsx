@@ -1,12 +1,13 @@
 import Pet from "./Pet";
+import {Pet as PetType} from '../fetchApi/APIResponsesTypes'
 
-const Results = ({ pets }:any) => {
+const Results = ({ pets }:{pets: PetType[]}) => {
   return (
     <div className=" grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {!pets.length ? (
         <h1>No Pets Found</h1>
       ) : (
-        pets.map((pet:any) => {
+        pets.map((pet) => {
           return (
             <Pet
               // {...pet} --> this one is not good to do

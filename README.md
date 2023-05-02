@@ -1,4 +1,4 @@
-# Introduction to Adopt Me React Hook TypeScript
+# Adopt Me React Hook TypeScript
 
 
 <img width="1372" alt="Screen Shot 2023-04-23 at 5 40 29 AM" src="https://user-images.githubusercontent.com/50789325/233835078-e5a146f1-60a4-43fc-a3f5-72250749abe4.png">
